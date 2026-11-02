@@ -4,32 +4,31 @@ import { motion } from "framer-motion";
 import { HarmonicFloat, SpringBounce, SPRING_CONFIG } from "./MathMotion";
 import Reveal from "./Reveal";
 import {
-    SiJavascript,
-    SiTypescript,
     SiPython,
-    SiHtml5,
-    SiCss3,
-    SiReact,
-    SiNextdotjs,
-    SiTailwindcss,
-    SiMui,
-    SiNodedotjs,
-    SiExpress,
-    SiFastapi,
+    SiTypescript,
+    SiPytorch,
     SiScikitlearn,
+    SiOnnx,
+    SiOpencv,
     SiNumpy,
     SiPandas,
-    SiMysql,
-    SiPostgresql,
-    SiMongodb,
-    SiPrisma,
-    SiAmazon,
+    SiPlotly,
+    SiJupyter,
+    SiStreamlit,
+    SiFastapi,
     SiDocker,
     SiKubernetes,
     SiGithubactions,
-    SiGnubash,
+    SiAmazon,
+    SiKaggle,
+    SiGooglecolab,
+    SiPostgresql,
+    SiMongodb,
+    SiReact,
+    SiNextdotjs,
+    SiNodedotjs,
 } from "react-icons/si";
-import { TbApi } from "react-icons/tb";
+import { TbBrain, TbChartLine, TbSql, TbTree, TbTopologyStar3 } from "react-icons/tb";
 
 const techCategories = [
     {
@@ -38,71 +37,74 @@ const techCategories = [
         text: "text-red-500",
         bg: "bg-red-50",
         skills: [
-            { name: "JavaScript", icon: SiJavascript },
-            { name: "TypeScript", icon: SiTypescript },
             { name: "Python", icon: SiPython },
+            { name: "SQL", icon: TbSql },
+            { name: "TypeScript", icon: SiTypescript },
         ],
     },
     {
-        title: "Frontend",
-        color: "border-blue-200 hover:border-blue-400",
-        text: "text-blue-500",
-        bg: "bg-blue-50",
-        skills: [
-            { name: "React", icon: SiReact },
-            { name: "Next.js", icon: SiNextdotjs },
-            { name: "Tailwind", icon: SiTailwindcss },
-            { name: "MUI", icon: SiMui },
-            { name: "HTML", icon: SiHtml5 },
-            { name: "CSS", icon: SiCss3 },
-        ],
-    },
-    {
-        title: "Backend",
-        color: "border-green-200 hover:border-green-400",
-        text: "text-green-500",
-        bg: "bg-green-50",
-        skills: [
-            { name: "Node.js", icon: SiNodedotjs },
-            { name: "Express", icon: SiExpress },
-            { name: "FastAPI", icon: SiFastapi },
-            { name: "REST API", icon: TbApi },
-        ],
-    },
-    {
-        title: "AI & Data",
+        title: "Machine Learning & Deep Learning",
         color: "border-purple-200 hover:border-purple-400",
         text: "text-purple-500",
         bg: "bg-purple-50",
         skills: [
+            { name: "PyTorch", icon: SiPytorch },
             { name: "scikit-learn", icon: SiScikitlearn },
+            { name: "LightGBM", icon: TbTree },
+            { name: "Transformers", icon: TbBrain },
+            { name: "Graph NNs", icon: TbTopologyStar3 },
+            { name: "OpenCV", icon: SiOpencv },
+        ],
+    },
+    {
+        title: "Data & Experimentation",
+        color: "border-blue-200 hover:border-blue-400",
+        text: "text-blue-500",
+        bg: "bg-blue-50",
+        skills: [
             { name: "NumPy", icon: SiNumpy },
             { name: "Pandas", icon: SiPandas },
+            { name: "Jupyter", icon: SiJupyter },
+            { name: "Plotly", icon: SiPlotly },
+            { name: "Time Series", icon: TbChartLine },
         ],
     },
     {
-        title: "Database",
-        color: "border-yellow-200 hover:border-yellow-400",
-        text: "text-yellow-500",
-        bg: "bg-yellow-50",
+        title: "Deployment & MLOps",
+        color: "border-green-200 hover:border-green-400",
+        text: "text-green-500",
+        bg: "bg-green-50",
         skills: [
-            { name: "PostgreSQL", icon: SiPostgresql },
-            { name: "MySQL", icon: SiMysql },
-            { name: "MongoDB", icon: SiMongodb },
-            { name: "Prisma", icon: SiPrisma },
+            { name: "ONNX", icon: SiOnnx },
+            { name: "Streamlit", icon: SiStreamlit },
+            { name: "FastAPI", icon: SiFastapi },
+            { name: "Docker", icon: SiDocker },
+            { name: "K8s", icon: SiKubernetes },
+            { name: "Actions", icon: SiGithubactions },
         ],
     },
     {
-        title: "DevOps",
+        title: "Compute & Cloud",
         color: "border-cyan-200 hover:border-cyan-400",
         text: "text-cyan-500",
         bg: "bg-cyan-50",
         skills: [
             { name: "AWS", icon: SiAmazon },
-            { name: "Docker", icon: SiDocker },
-            { name: "K8s", icon: SiKubernetes },
-            { name: "Actions", icon: SiGithubactions },
-            { name: "Bash", icon: SiGnubash },
+            { name: "Kaggle GPUs", icon: SiKaggle },
+            { name: "Colab", icon: SiGooglecolab },
+        ],
+    },
+    {
+        title: "Data Stores & Web",
+        color: "border-yellow-200 hover:border-yellow-400",
+        text: "text-yellow-500",
+        bg: "bg-yellow-50",
+        skills: [
+            { name: "PostgreSQL", icon: SiPostgresql },
+            { name: "MongoDB", icon: SiMongodb },
+            { name: "React", icon: SiReact },
+            { name: "Next.js", icon: SiNextdotjs },
+            { name: "Node.js", icon: SiNodedotjs },
         ],
     },
 ];
@@ -119,7 +121,7 @@ export default function TechStack() {
                     </Reveal>
                     <Reveal width="100%" delay={0.2}>
                         <p className="text-gray-600 max-w-2xl mx-auto text-lg text-center">
-                            My technical toolbox for building digital products.
+                            The toolbox I use to take models from raw data to production.
                         </p>
                     </Reveal>
                 </div>
@@ -127,6 +129,11 @@ export default function TechStack() {
                 <div className="space-y-16">
                     {techCategories.map((category, catIndex) => (
                         <div key={category.title} className="flex flex-col items-center">
+                            <Reveal width="100%">
+                                <h3 className={`text-center text-sm font-mono font-semibold uppercase tracking-widest mb-6 ${category.text}`}>
+                                    {category.title}
+                                </h3>
+                            </Reveal>
                             <div className="flex flex-wrap justify-center gap-6 max-w-5xl">
                                 {category.skills.map((skill, index) => (
                                     <Reveal key={skill.name} delay={index * 0.1}>

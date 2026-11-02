@@ -5,7 +5,7 @@ import { ArrowRight, Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-const words = ["Web & AI", "Intelligent Apps", "Digital Products"];
+const words = ["Medical Imaging", "Forecasting", "Real-World Data"];
 
 export default function Hero() {
     const [currentWord, setCurrentWord] = useState("");
@@ -39,7 +39,7 @@ export default function Hero() {
     }, [currentWord, isDeleting, loopNum, typingSpeed]);
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <section id="about" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
 
             <div className="container mx-auto px-6 relative z-10 text-center">
                 <motion.div
@@ -53,19 +53,19 @@ export default function Hero() {
                         transition={{ delay: 0.2 }}
                         className="inline-block py-1 px-3 rounded-full bg-gray-100 border border-gray-200 text-sm text-gray-600 mb-6 font-medium"
                     >
-                        Available for freelance work
+                        Open to Machine Learning Engineer roles
                     </motion.span>
 
                     <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 text-gray-900">
-                        Building the <br />
+                        Machine Learning <br />
                         <span className="text-gradient">
-                            Future of {currentWord}
+                            for {currentWord}
                         </span>
                         <span className="animate-pulse text-primary">|</span>
                     </h1>
 
                     <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-                        I'm Akhil, a Full Stack + AI Developer crafting intelligent, scalable, and beautiful web experiences.
+                        I&apos;m Akhil, a Machine Learning Engineer. I take models from raw data to deployed apps: deep learning, time-series forecasting and computer vision, with honest evaluation and baselines they have to beat.
                     </p>
 
                     <div className="flex flex-col md:flex-row items-center justify-center gap-4">
@@ -73,7 +73,7 @@ export default function Hero() {
                             href="#projects"
                             className="group relative px-8 py-4 bg-black text-white font-semibold rounded-full hover:bg-gray-900 transition-all flex items-center gap-2 shadow-lg hover:shadow-2xl hover:-translate-y-1 active:scale-95"
                         >
-                            View Work
+                            View ML Projects
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
                         <Link

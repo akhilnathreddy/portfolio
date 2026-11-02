@@ -59,7 +59,7 @@ export default function Contact() {
                     </Reveal>
                     <Reveal width="100%" delay={0.1}>
                         <p className="text-gray-600 max-w-xl mx-auto text-lg text-center">
-                            Have a project in mind or just want to chat? I'd love to hear from you.
+                            Hiring for an ML role, or have a modeling problem worth solving? I'd love to hear from you.
                         </p>
                     </Reveal>
                 </div>
@@ -108,7 +108,7 @@ export default function Contact() {
                                     value={formData.message}
                                     onChange={handleChange}
                                     className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:border-gray-400 transition-all resize-none"
-                                    placeholder="Tell me about your project..."
+                                    placeholder="Tell me about the role or the problem..."
                                 />
                             </div>
                             <button
