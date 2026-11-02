@@ -16,8 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Akhil | Full Stack + AI Developer",
-  description: "Portfolio of Akhil - Full Stack and AI Developer",
+  title: "Akhil | Machine Learning Engineer",
+  description:
+    "Portfolio of Akhil Nath Reddy Kommuru - Machine Learning Engineer building deep learning, forecasting and computer vision systems from raw data to deployed apps.",
 };
 
 export default function RootLayout({

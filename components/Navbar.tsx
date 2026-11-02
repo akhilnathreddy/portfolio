@@ -13,7 +13,7 @@ function cn(...inputs: (string | undefined | null | false)[]) {
 
 const navItems = [
   { name: "About", href: "#about", icon: User },
-  { name: "Tech", href: "#tech", icon: Code2 },
+  { name: "Skills", href: "#tech", icon: Code2 },
   { name: "Projects", href: "#projects", icon: Briefcase },
   { name: "Contact", href: "#contact", icon: Mail },
 ];

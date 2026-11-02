@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Akhil — Machine Learning Engineer Portfolio
 
-## Getting Started
+Personal portfolio of Akhil Nath Reddy Kommuru, a Machine Learning Engineer working on
+deep learning, time-series forecasting and medical computer vision.
 
-First, run the development server:
+## Featured projects
+
+- **[Delhi-NCR Air-Quality Forecasting](https://github.com/akhilnathreddy/delhi-aqi-forecast)**:
+  72-hour PM2.5 forecasts for 56 stations with LightGBM, a Temporal Fusion Transformer and a
+  wind-aware spatio-temporal GNN (28% lower MAE than persistence).
+  [Live demo](https://delhi-aqi-forecast-ml.streamlit.app/)
+- **[Brain Tumor Segmentation (BraTS 2020)](https://github.com/akhilnathreddy/brain-tumor-seg)**:
+  U-Net variants with modality dropout and per-voxel uncertainty (whole-tumor Dice 0.90).
+  [Live demo](https://brain-tumor-seg-ml.streamlit.app/)
+- **[COVID-19 & Maternal Health Analytics](https://github.com/akhilnathreddy/Pregnant_Women_COVID19)**:
+  cleaning, segmentation and dashboarding of the Canadian PdP pregnancy survey.
+
+## Tech
+
+Built with Next.js, React, TypeScript, Tailwind CSS, Framer Motion and React Three Fiber.
+
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000). Project content lives in
+`components/Projects.tsx` and skills in `components/TechStack.tsx`.

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const sections = [
     { name: "About", href: "#about", vector: "(1, 0)" },
-    { name: "Tech", href: "#tech", vector: "(0, 1)" },
+    { name: "Skills", href: "#tech", vector: "(0, 1)" },
     { name: "Projects", href: "#projects", vector: "(1, 1)" },
     { name: "Contact", href: "#contact", vector: "(2, 1)" },
 ];

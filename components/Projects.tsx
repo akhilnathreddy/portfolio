@@ -1,81 +1,125 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ExternalLink, Github, Calendar, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
-import { useRef } from "react";
 import TiltCard from "./TiltCard";
 import Reveal from "./Reveal";
 
-const projects = [
+type Project = {
+    primeId: string;
+    date: string;
+    title: string;
+    role: string;
+    description: string;
+    tags: string[];
+    link: string;
+    github: string;
+    gradient: string;
+    metrics?: { value: string; label: string }[];
+    features: string[];
+};
+
+const projects: Project[] = [
     {
         primeId: "02",
-        date: "Feb 2025 – Present",
-        title: "AI Image Generator",
-        role: "Full Stack Developer",
-        description: "Built a production-ready AI platform that generates realistic images from text prompts using Stable Diffusion. Implemented a credit system, user gallery, and high-performance image processing pipeline.",
-        tags: ["Next.js", "Python", "FastAPI", "PyTorch", "PostgreSQL"],
-        link: "#",
-        github: "#",
-        gradient: "from-violet-500 to-purple-500",
+        date: "Oct 2026",
+        title: "Delhi-NCR Air-Quality Forecasting",
+        role: "ML Engineer · Time Series & Spatio-Temporal Models",
+        description: "72-hour PM2.5 forecasts for 56 regulatory monitoring stations across Delhi-NCR, fusing station data, NOAA GFS weather forecasts and VIIRS satellite fire detections. Live forecasts and a backtest explorer run in a public Streamlit app.",
+        tags: ["PyTorch", "LightGBM", "Temporal Fusion Transformer", "Graph Neural Networks", "Streamlit", "GitHub Actions"],
+        link: "https://delhi-aqi-forecast-ml.streamlit.app/",
+        github: "https://github.com/akhilnathreddy/delhi-aqi-forecast",
+        gradient: "from-sky-500 to-indigo-500",
+        metrics: [
+            { value: "−28%", label: "MAE vs persistence" },
+            { value: "56", label: "stations" },
+            { value: "72h", label: "forecast horizon" },
+        ],
         features: [
-            "Developed responsive UI using React & Tailwind",
-            "Built scalable REST APIs with FastAPI",
-            "Optimized image generation latency by 40%",
-            "Integrated Stripe for payment processing"
-        ]
+            "Built a Temporal Fusion Transformer and a wind-aware spatio-temporal GNN from scratch in PyTorch, ensembled with LightGBM quantile models",
+            "Designed a physics-informed smoke-arrival index that advects stubble-fire detections towards Delhi with forecast winds",
+            "Leakage-free evaluation: blocked time folds with 72 h embargoes, held-out winter season, interval coverage and AQI category accuracy",
+            "Level-anchored variants cut held-out winter MAE from 80.8 (persistence) to 60.2 µg/m³",
+        ],
     },
     {
         primeId: "03",
-        date: "Nov 2024 – Jan 2025",
-        title: "E-Commerce Dashboard",
-        role: "Frontend Engineer",
-        description: "Real-time analytics dashboard for online stores with predictive sales modeling. Visualized complex data sets using interactive charts and graphs.",
-        tags: ["React", "Tremor", "PostgreSQL", "AWS"],
-        link: "#",
-        github: "#",
-        gradient: "from-blue-500 to-cyan-500",
+        date: "Oct 2026",
+        title: "Brain Tumor Segmentation (BraTS 2020)",
+        role: "ML Engineer · Medical Computer Vision",
+        description: "Segments gliomas in brain MRI into whole tumor, tumor core and enhancing tumor from four MRI sequences, reports tumor volumes in mL with a per-voxel uncertainty map, and keeps working when a sequence is missing.",
+        tags: ["PyTorch", "U-Net", "segmentation-models-pytorch", "ONNX", "Kaggle GPU", "Streamlit"],
+        link: "https://brain-tumor-seg-ml.streamlit.app/",
+        github: "https://github.com/akhilnathreddy/brain-tumor-seg",
+        gradient: "from-violet-500 to-fuchsia-500",
+        metrics: [
+            { value: "0.90", label: "Dice (whole tumor)" },
+            { value: "0.97", label: "uncertainty AUROC" },
+            { value: "~10 s", label: "per patient on CPU" },
+        ],
         features: [
-            "Implemented real-time data updates via WebSockets",
-            "Designed accessible and dark-mode compatible UI",
-            "Reduced bundle size by 30% with code splitting"
-        ]
+            "Compared U-Net, Attention U-Net and ResNet34 U-Net on a patient-level split of 369 patients, scored in 3D at native resolution",
+            "Modality dropout keeps whole-tumor Dice at 0.83 without FLAIR, versus 0.58 for the model trained without it",
+            "Uncertainty map flags errors: the 1% most uncertain voxels are wrong 35–40× more often than the rest",
+            "Exported half-precision and ONNX weights; trained end-to-end in one unattended Kaggle T4 run",
+        ],
     },
     {
         primeId: "05",
-        date: "Aug 2024 – Oct 2024",
-        title: "Smart Chatbot",
-        role: "AI Engineer",
-        description: "Context-aware chatbot powered by LLMs for customer support automation. Handles thousands of concurrent queries with sub-second response times.",
-        tags: ["OpenAI API", "Node.js", "Redis", "Docker"],
+        date: "Feb 2026",
+        title: "COVID-19 & Maternal Health Analytics",
+        role: "Data Analyst · Healthcare",
+        description: "Analysis of the Canadian Pregnancy during the COVID-19 Pandemic (PdP) survey to measure pandemic stress, maternal mental health and birth outcomes, with an interactive dashboard for segmented analysis.",
+        tags: ["Data Cleaning", "Feature Engineering", "EDA", "Dashboards", "Google Sheets"],
         link: "#",
-        github: "#",
+        github: "https://github.com/akhilnathreddy/Pregnant_Women_COVID19",
         gradient: "from-emerald-500 to-teal-500",
+        metrics: [
+            { value: "10.7k", label: "raw records" },
+            { value: "5.4k", label: "after cleaning" },
+        ],
         features: [
-            "Fine-tuned GPT-3.5 on custom support data",
-            "Implemented semantic search using vector databases",
-            "Deployed on Kubernetes for high availability"
-        ]
+            "Cleaned and transformed ~10.8k survey records into an analysis-ready dataset",
+            "Segmented EPDS depression and PROMIS anxiety scores by age, income and education",
+            "Analyzed preterm birth, birth weight and NICU stays against pandemic-stress measures",
+        ],
     },
     {
         primeId: "07",
-        date: "May 2024 – July 2024",
-        title: "Portfolio V1",
-        role: "Creative Developer",
-        description: "My previous portfolio website built with vanilla JS and WebGL. Experimented with 3D graphics and shader programming.",
-        tags: ["JavaScript", "WebGL", "GSAP", "Three.js"],
+        date: "Feb 2025 – Present",
+        title: "AI Image Generator",
+        role: "ML + Full Stack Engineer",
+        description: "Production-ready AI platform that generates realistic images from text prompts using Stable Diffusion, with a high-performance image processing pipeline, a credit system and a user gallery.",
+        tags: ["PyTorch", "Stable Diffusion", "FastAPI", "Next.js", "PostgreSQL"],
         link: "#",
         github: "#",
         gradient: "from-orange-500 to-red-500",
         features: [
-            "Created custom WebGL shaders for background effects",
-            "Achieved 100/100 Lighthouse performance score",
-            "Implemented smooth scroll and page transitions"
-        ]
+            "Built scalable REST APIs with FastAPI around the image-generation pipeline",
+            "Optimized image generation latency by 40%",
+            "Integrated Stripe for payment processing",
+        ],
+    },
+    {
+        primeId: "11",
+        date: "Aug 2024 – Oct 2024",
+        title: "LLM Support Chatbot",
+        role: "AI Engineer",
+        description: "Context-aware chatbot powered by LLMs for customer support automation. Handles thousands of concurrent queries with sub-second response times.",
+        tags: ["OpenAI API", "Fine-tuning", "Vector Search", "Redis", "Docker"],
+        link: "#",
+        github: "#",
+        gradient: "from-amber-500 to-yellow-500",
+        features: [
+            "Fine-tuned GPT-3.5 on custom support data",
+            "Implemented semantic search using vector databases",
+            "Deployed on Kubernetes for high availability",
+        ],
     },
 ];
 
-function TimelineItem({ project, index }: { project: any; index: number }) {
+function TimelineItem({ project, index }: { project: Project; index: number }) {
     return (
         <div
             className="relative grid grid-cols-1 md:grid-cols-[38.2%_61.8%] gap-8 mb-20 last:mb-0 items-start"
@@ -135,18 +179,28 @@ function TimelineItem({ project, index }: { project: any; index: number }) {
                                 </div>
 
                                 <div className="flex gap-3">
-                                    <Link
-                                        href={project.link}
-                                        className="p-2 bg-gray-50 text-gray-600 rounded-full hover:bg-black hover:text-white hover:scale-110 transition-all duration-300"
-                                    >
-                                        <ExternalLink className="w-5 h-5" />
-                                    </Link>
-                                    <Link
-                                        href={project.github}
-                                        className="p-2 bg-gray-50 text-gray-600 rounded-full hover:bg-black hover:text-white hover:scale-110 transition-all duration-300"
-                                    >
-                                        <Github className="w-5 h-5" />
-                                    </Link>
+                                    {project.link !== "#" && (
+                                        <Link
+                                            href={project.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label={`${project.title} live demo`}
+                                            className="p-2 bg-gray-50 text-gray-600 rounded-full hover:bg-black hover:text-white hover:scale-110 transition-all duration-300"
+                                        >
+                                            <ExternalLink className="w-5 h-5" />
+                                        </Link>
+                                    )}
+                                    {project.github !== "#" && (
+                                        <Link
+                                            href={project.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label={`${project.title} source code`}
+                                            className="p-2 bg-gray-50 text-gray-600 rounded-full hover:bg-black hover:text-white hover:scale-110 transition-all duration-300"
+                                        >
+                                            <Github className="w-5 h-5" />
+                                        </Link>
+                                    )}
                                 </div>
                             </div>
 
@@ -154,17 +208,33 @@ function TimelineItem({ project, index }: { project: any; index: number }) {
                                 {project.description}
                             </p>
 
+                            {project.metrics && (
+                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+                                    {project.metrics.map((metric) => (
+                                        <div
+                                            key={metric.label}
+                                            className="rounded-2xl bg-gray-50 border border-gray-100 px-4 py-3"
+                                        >
+                                            <div className={`text-2xl font-bold font-mono bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent`}>
+                                                {metric.value}
+                                            </div>
+                                            <div className="text-xs text-gray-500 mt-1">{metric.label}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
                             <ul className="space-y-2 mb-8">
-                                {project.features.map((feature: string, i: number) => (
+                                {project.features.map((feature, i) => (
                                     <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                                        <span className={`mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r ${project.gradient}`} />
+                                        <span className={`mt-1.5 w-1.5 h-1.5 shrink-0 rounded-full bg-gradient-to-r ${project.gradient}`} />
                                         {feature}
                                     </li>
                                 ))}
                             </ul>
 
                             <div className="flex flex-wrap gap-2">
-                                {project.tags.map((tag: string) => (
+                                {project.tags.map((tag) => (
                                     <span
                                         key={tag}
                                         className="px-3 py-1 text-xs font-semibold rounded-full bg-gray-50 text-gray-600 border border-gray-100"
@@ -188,12 +258,12 @@ export default function Projects() {
                 <div className="text-center mb-20">
                     <Reveal width="100%">
                         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 text-center">
-                            Featured <span className="text-primary">Work</span>
+                            Featured <span className="text-primary">ML Work</span>
                         </h2>
                     </Reveal>
                     <Reveal width="100%" delay={0.2}>
                         <p className="text-gray-600 max-w-2xl mx-auto text-lg text-center">
-                            A timeline of my journey building scalable applications and AI solutions.
+                            Models I&apos;ve built end to end: data pipelines, training, honest evaluation and deployment.
                         </p>
                     </Reveal>
                 </div>
