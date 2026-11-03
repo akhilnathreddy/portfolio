@@ -85,38 +85,6 @@ const projects: Project[] = [
             "Analyzed preterm birth, birth weight and NICU stays against pandemic-stress measures",
         ],
     },
-    {
-        primeId: "07",
-        date: "Feb 2025 – Present",
-        title: "AI Image Generator",
-        role: "ML + Full Stack Engineer",
-        description: "Production-ready AI platform that generates realistic images from text prompts using Stable Diffusion, with a high-performance image processing pipeline, a credit system and a user gallery.",
-        tags: ["PyTorch", "Stable Diffusion", "FastAPI", "Next.js", "PostgreSQL"],
-        link: "#",
-        github: "#",
-        gradient: "from-orange-500 to-red-500",
-        features: [
-            "Built scalable REST APIs with FastAPI around the image-generation pipeline",
-            "Optimized image generation latency by 40%",
-            "Integrated Stripe for payment processing",
-        ],
-    },
-    {
-        primeId: "11",
-        date: "Aug 2024 – Oct 2024",
-        title: "LLM Support Chatbot",
-        role: "AI Engineer",
-        description: "Context-aware chatbot powered by LLMs for customer support automation. Handles thousands of concurrent queries with sub-second response times.",
-        tags: ["OpenAI API", "Fine-tuning", "Vector Search", "Redis", "Docker"],
-        link: "#",
-        github: "#",
-        gradient: "from-amber-500 to-yellow-500",
-        features: [
-            "Fine-tuned GPT-3.5 on custom support data",
-            "Implemented semantic search using vector databases",
-            "Deployed on Kubernetes for high availability",
-        ],
-    },
 ];
 
 function TimelineItem({ project, index }: { project: Project; index: number }) {
