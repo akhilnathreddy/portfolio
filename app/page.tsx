@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import TechStack from "@/components/TechStack";
 import Projects from "@/components/Projects";
+import Kaggle from "@/components/Kaggle";
 import Contact from "@/components/Contact";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <TechStack />
       <Projects />
+      <Kaggle />
       <Contact />
 
       <footer className="py-8 text-center text-gray-500 text-sm border-t border-white/5">
