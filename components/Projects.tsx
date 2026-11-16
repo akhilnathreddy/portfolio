@@ -23,6 +23,47 @@ type Project = {
 const projects: Project[] = [
     {
         primeId: "02",
+        date: "Nov 2026",
+        title: "QM9 Curated: Validated, Tiered, Split-Audited",
+        role: "Published Dataset · Data Quality & Molecular ML",
+        description: "A validated, tiered release of all 133,885 QM9 quantum-chemistry molecules. Every record passes format, chemical-identity, physics and statistical checks and gets a quality tier with machine-readable reasons, alongside eight leakage-audited benchmark splits. Published on Zenodo with a DOI and mirrored on Kaggle.",
+        tags: ["Python", "Polars", "DVC", "Parquet", "Croissant", "ASE", "Zenodo"],
+        link: "https://www.kaggle.com/datasets/akhilnathreddy/qm9-curated",
+        github: "https://github.com/akhilnathreddy/qm9-advanced-curation",
+        gradient: "from-amber-500 to-orange-500",
+        metrics: [
+            { value: "133,885", label: "molecules validated" },
+            { value: "8 × 5", label: "split strategies × seeds" },
+            { value: "12 / 14", label: "files byte-reproducible" },
+        ],
+        features: [
+            "Quality tiers (gold, silver, bronze, quarantine) with rule ids; no record is deleted, so every decision is auditable",
+            "Eight leakage-audited splits (scaffold, isomer, ECFP cluster, size and element hold-outs, property tails) that keep duplicates, tautomers and InChIKey blocks on one side",
+            "Source values kept exactly next to unit conversions, plus geometries, harmonic frequencies and a G4(MP2) cross-reference",
+            "One command (make reproduce) rebuilds the release from the original archives and checks it against the published SHA-256 manifest",
+        ],
+    },
+    {
+        primeId: "03",
+        date: "Nov 2026",
+        title: "Gemma 4 Dev-Set Contamination Study",
+        role: "Researcher · LLM Evaluation",
+        description: "A research writeup for Google DeepMind's Gemma 4 Developer Agent Paper Track, separating parametric from environmental contamination across the 129 public dev tasks of the coding-agent benchmark. The leak labels, memorisation-probe scores and code are released as an open dataset.",
+        tags: ["LLM Evaluation", "Coding Agents", "Gemma 4", "Python", "Kaggle"],
+        link: "https://www.kaggle.com/datasets/akhilnathreddy/gemma-4-dev-set-contamination-labels",
+        github: "#",
+        gradient: "from-rose-500 to-pink-500",
+        metrics: [
+            { value: "129", label: "dev tasks labelled" },
+        ],
+        features: [
+            "Labelled each public dev task for leakage and scored it with memorisation probes",
+            "Public reproduction notebooks on Kaggle, including copy-from-wheel and unshadowed-sandbox baselines",
+            "Released only our own outputs (ids, labels, scores, code) with a reproduce script that recomputes every headline number",
+        ],
+    },
+    {
+        primeId: "05",
         date: "Oct 2026",
         title: "Delhi-NCR Air-Quality Forecasting",
         role: "ML Engineer · Time Series & Spatio-Temporal Models",
@@ -44,7 +85,7 @@ const projects: Project[] = [
         ],
     },
     {
-        primeId: "03",
+        primeId: "07",
         date: "Oct 2026",
         title: "Brain Tumor Segmentation (BraTS 2020)",
         role: "ML Engineer · Medical Computer Vision",
@@ -66,7 +107,7 @@ const projects: Project[] = [
         ],
     },
     {
-        primeId: "05",
+        primeId: "11",
         date: "Feb 2026",
         title: "COVID-19 & Maternal Health Analytics",
         role: "Data Analyst · Healthcare",

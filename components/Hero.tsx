@@ -3,9 +3,10 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin } from "lucide-react";
 import Link from "next/link";
+import { SiKaggle } from "react-icons/si";
 import { useState, useEffect } from "react";
 
-const words = ["Medical Imaging", "Forecasting", "Real-World Data"];
+const words = ["Medical Imaging", "Forecasting", "Molecular Science", "Real-World Data"];
 
 export default function Hero() {
     const [currentWord, setCurrentWord] = useState("");
@@ -65,7 +66,7 @@ export default function Hero() {
                     </h1>
 
                     <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-                        I&apos;m Akhil, a Machine Learning Engineer. I take models from raw data to deployed apps: deep learning, time-series forecasting and computer vision, with honest evaluation and baselines they have to beat.
+                        I&apos;m Akhil, a Machine Learning Engineer. I take models from raw data to deployed apps: deep learning, time-series forecasting, computer vision and molecular ML, with honest evaluation and baselines they have to beat. I also compete on Kaggle and publish open datasets.
                     </p>
 
                     <div className="flex flex-col md:flex-row items-center justify-center gap-4">
@@ -90,6 +91,9 @@ export default function Hero() {
                         </Link>
                         <Link href="https://www.linkedin.com/in/akhil-nath-reddy-kommuru-9510b6323/" className="hover:text-blue-600 transition-all hover:scale-110 hover:-rotate-12 duration-300">
                             <Linkedin className="w-6 h-6" />
+                        </Link>
+                        <Link href="https://www.kaggle.com/akhilnathreddy" aria-label="Kaggle" className="hover:text-sky-500 transition-all hover:scale-110 hover:-rotate-12 duration-300">
+                            <SiKaggle className="w-12 h-12 -my-3" />
                         </Link>
                         <Link href="https://x.com/AkhilKommuru124" className="hover:text-black transition-all hover:scale-110 hover:rotate-12 duration-300">
                             <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
