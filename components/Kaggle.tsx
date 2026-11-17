@@ -25,7 +25,7 @@ const competitions: Competition[] = [
         title: "Enveda CASMI 2026: Molecule ID From Mass Spectra",
         host: "Enveda · Featured · Code competition",
         status: "Active",
-        detail: "Predicting 2D structures of small molecules from mass spectra. Ranked 609 of 5,406 teams on the public leaderboard (Nov 2026), with learned candidate scorers and ensembles.",
+        detail: "Predicting 2D structures of small molecules from mass spectra, ranking candidate structures with learned scorers and ensembles.",
         link: "https://www.kaggle.com/competitions/enveda-CASMI26-molecule-id-mass-spectra",
         gradient: "from-emerald-500 to-teal-500",
     },
